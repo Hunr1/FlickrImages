@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">FlickrImages</string>
+    <string name="loadBtn">Load</string>
+    <string name="hint">Subject</string>
+</resources>
