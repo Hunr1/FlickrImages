@@ -4,9 +4,7 @@ import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.ScaleGestureDetector;
 import android.widget.ImageView;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.squareup.picasso.Picasso;
 
 public class SingleImage extends AppCompatActivity {
@@ -14,22 +12,25 @@ public class SingleImage extends AppCompatActivity {
     ImageView imgView;
     String url;
     private ScaleGestureDetector mScaleGestureDetector;
+
+    //zoomauksen nopeus
     private float mScaleFactor = 1.0f;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.single_image_view);
+        //haetaan kuvan URL extroista
         Bundle bundle = getIntent().getExtras();
         if(bundle!=null){
             url = bundle.getString("url");
         }
 
         imgView = findViewById(R.id.singleImage);
+        //ladataan kuva imageViewiin
         Picasso.get().load(url).into(imgView);
         mScaleGestureDetector = new ScaleGestureDetector(this, new ScaleListener());
     }
-
 
 
     @Override
